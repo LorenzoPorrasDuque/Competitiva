@@ -29,9 +29,10 @@ func main() {
 	sums[8] = 36
 	sums[9] = 45
 
-	for i := 10; i < numbers[len(numbers)-1]+1; i++ {
+	for i := 10; i < len(sums); i++ {
 		sums[i] = sums[i-1] + calculateSumOfDigits(i)
 	}
+
 	for i := 0; i < cases; i++ {
 		fmt.Println(sums[numbers[i]])
 	}
