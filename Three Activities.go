@@ -28,28 +28,20 @@ func createMatrix(n int) [][]int {
 }
 func findMaxFriends(matrix [][]int) int {
 	var sum int
-
-	for i1, ints1 := range matrix[0] {
-		for i2, ints2 := range matrix[1] {
-			for i3, ints3 := range matrix[2] {
-				if i2 != i1 && i3 != i2 && ints1+ints2+ints3 > sum {
-					sum = ints1 + ints2 + ints3
+	for i := 0; i < len(matrix[0]); i++ {
+		for j := 0; j < len(matrix[1]); j++ {
+			if i != j {
+				for k := 0; k < len(matrix[2]); k++ {
+					if j != k && i != k {
+						if matrix[0][i]+matrix[1][j]+matrix[2][k] > sum {
+							sum = matrix[0][i] + matrix[1][j] + matrix[2][k]
+						}
+					}
 				}
 			}
+
 		}
 	}
 	return sum
+
 }
-
-/*
-func findMaxFriends(matrix [][]int) int {
-	var sum int
-	for i := 0; i < len(matrix[0]); i++ {
-		for j := 0; j < len(matrix[1]); j++ {
-			for k := 0; k < len(matrix[2]); k++ {
-
-			}
-		}
-	}
-
-*/
